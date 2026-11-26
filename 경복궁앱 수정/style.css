@@ -1,0 +1,453 @@
+:root {
+  --night-bg: #0b1120;         /* 서울 밤하늘 배경 */
+  --night-surface: #131c31;    /* 카드·패널 배경 */
+  --night-elevated: #1c2845;   /* 호버·활성화 배경 */
+  --gold: #e0b354;             /* 경복궁 야간 조명 금빛 */
+  --gold-deep: #b8892e;        /* 버튼·강조 진한 금빛 */
+  --gold-soft: rgba(224, 179, 84, 0.16);
+  --line: rgba(224, 179, 84, 0.24);
+  --ink: #f2eee6;              /* 달빛 아이보리 텍스트 */
+  --muted: #9aa7bf;            /* 보조 텍스트 */
+}
+
+/* ---------- 공통 ---------- */
+html,
+body,
+.ui-page-theme-a,
+.ui-page-theme-a .ui-content {
+  background: radial-gradient(circle at 50% 0%, #17233f 0%, var(--night-bg) 55%);
+  color: var(--ink);
+  color-scheme: dark;
+}
+
+.ui-page-theme-a,
+.ui-page-theme-a .ui-btn,
+.ui-page-theme-a .ui-body-a,
+.ui-page-theme-a input,
+.ui-page-theme-a button {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  text-shadow: none;
+}
+
+/* 헤더 (data-theme="a", "b" 모두 일괄 적용) */
+.ui-header.ui-bar-inherit,
+.ui-header.ui-bar-a,
+.ui-header.ui-bar-b {
+  background: rgba(9, 14, 27, 0.94);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--gold);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.ui-header .ui-title {
+  margin: 0;
+  padding: 1.1em 1em;
+  font-size: 1.12em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  text-shadow: 0 1px 10px rgba(224, 179, 84, 0.25);
+}
+
+.ui-header .ui-btn,
+.ui-header .ui-btn:hover,
+.ui-header .ui-btn:focus {
+  background: transparent;
+  border: 0;
+  color: var(--gold);
+  text-shadow: none;
+  box-shadow: none;
+}
+
+/* 푸터 */
+.ui-footer.ui-bar-inherit,
+.ui-footer.ui-bar-a,
+.ui-footer.ui-bar-b {
+  background: #080d18;
+  border: 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+  padding: 1.1em 1em;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+.ui-footer p { margin: 0; }
+
+/* ---------- 홈 ---------- */
+.hero {
+  position: relative;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #1b2a4a 0%, #0d1526 100%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.88) contrast(1.06);
+}
+.hero-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.6em 1.2em 1em;
+  color: #fff;
+  background: linear-gradient(to top, rgba(7, 11, 22, 0.92) 15%, rgba(7, 11, 22, 0));
+}
+.hero-caption h2 {
+  margin: 0 0 0.3em;
+  font-size: 1.18em;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+.hero-caption p {
+  margin: 0;
+  font-size: 0.82em;
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+.lead {
+  margin: 1.4em 0 1.1em;
+  font-size: 0.88em;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.menu-list { margin: 0 0 1em; }
+.menu-list > li { border: 0; margin-bottom: 0.65em; }
+.menu-list > li > a.ui-btn {
+  padding: 1.1em 1.1em;
+  background: var(--night-surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 1.02em;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.menu-list > li > a.ui-btn:hover,
+.menu-list > li > a.ui-btn:focus {
+  background: var(--night-elevated);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 14px rgba(224, 179, 84, 0.18);
+}
+
+.step-card {
+  margin-top: 0.9em;
+  padding: 1.1em 1.1em 1.3em;
+  background: var(--night-surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.step-badge {
+  display: inline-block;
+  padding: 0.28em 0.95em;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  border: 1px solid rgba(224, 179, 84, 0.45);
+  color: var(--gold);
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.step-card p {
+  margin: 1.2em 0 0;
+  font-size: 0.86em;
+  color: var(--muted);
+}
+
+/* ---------- 궁궐 소개 ---------- */
+.intro-title {
+  margin: 0.2em 0 0.4em;
+  font-size: 1.3em;
+  color: var(--gold);
+}
+.intro-sub {
+  margin: 0 0 1.2em;
+  font-size: 0.88em;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.ui-collapsible-set { margin: 0; }
+.ui-collapsible-set .ui-collapsible { margin: 0 0 0.75em; }
+.ui-collapsible-set .ui-collapsible-heading-toggle,
+.ui-collapsible-set .ui-collapsible-heading-toggle:hover {
+  background: var(--night-surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font-weight: 700;
+  padding: 1em 1em 1em 2.6em;
+  text-shadow: none;
+}
+.ui-collapsible-set .ui-collapsible:not(.ui-collapsible-collapsed) > .ui-collapsible-heading > .ui-collapsible-heading-toggle {
+  background: var(--night-elevated);
+  border-color: var(--gold);
+  color: var(--gold);
+  border-radius: 10px 10px 0 0;
+}
+.ui-collapsible-set .ui-collapsible-content {
+  background: rgba(15, 22, 40, 0.92);
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  padding: 1em 1.1em 1.15em;
+  font-size: 0.9em;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.ui-collapsible-content p { margin: 0 0 0.7em; }
+.ui-collapsible-content p:last-child { margin-bottom: 0; }
+.ui-collapsible-content ul { margin: 0; padding-left: 1.2em; }
+.ui-collapsible-content li { margin-bottom: 0.45em; }
+.ui-collapsible-content li:last-child { margin-bottom: 0; }
+.ui-collapsible-content strong { color: var(--gold); }
+
+/* ---------- 영상 / 음악 / 안내 ---------- */
+.page-title {
+  margin: 0.2em 0 0.7em;
+  text-align: center;
+  font-size: 1.45em;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+.note-box {
+  margin: 0 0 1.1em;
+  padding: 0.85em 1em;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  background: var(--gold-soft);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.95em;
+}
+.section-label {
+  margin: 1.3em 0 0.5em;
+  font-size: 0.95em;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.video-wrap {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+video.local-video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #000;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  margin: 0 0 1em;
+  border-radius: 999px;
+}
+.cover {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+.caption {
+  margin: 0.8em 0 1em;
+  font-size: 0.82em;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.help-link {
+  display: inline-block;
+  margin: 0.2em 0 0.8em;
+  font-size: 0.84em;
+  color: var(--gold) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nav-row { display: flex; gap: 0.65em; margin-top: 1em; }
+.nav-row .ui-btn,
+.nav-row .ui-btn:visited {
+  flex: 1;
+  margin: 0;
+  padding: 0.9em 0.5em;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
+  border: 0;
+  border-radius: 8px;
+  color: #0b1120;
+  font-size: 0.98em;
+  font-weight: 800;
+  text-shadow: none;
+  box-shadow: 0 4px 14px rgba(224, 179, 84, 0.25);
+}
+.nav-row .ui-btn:hover,
+.nav-row .ui-btn:focus {
+  background: linear-gradient(180deg, #ecc56d 0%, var(--gold) 100%);
+  color: #0b1120;
+}
+
+/* 안내 다이얼로그 */
+#media-help .ui-content {
+  background: var(--night-surface);
+  color: var(--ink);
+}
+#media-help ul {
+  margin: 0 0 1.2em;
+  padding-left: 1.2em;
+  font-size: 0.92em;
+  line-height: 1.75;
+}
+#media-help li { margin-bottom: 0.45em; }
+#media-help .ui-btn,
+#media-help .ui-btn:hover {
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
+  border: 0;
+  border-radius: 8px;
+  color: #0b1120;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+/* ---------- 갤러리 / 팝업 ---------- */
+.home-btn.ui-btn,
+.home-btn.ui-btn:hover {
+  background: var(--gold-soft);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  color: var(--gold);
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 0.65em 1em;
+  margin-top: 0.85em;
+}
+.gallery-lead {
+  margin: 0.4em 0 1em;
+  font-size: 0.88em;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7em;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.gallery-item,
+.gallery-item:hover,
+.gallery-item:focus {
+  display: block;
+  overflow: hidden;
+  background: var(--night-surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.gallery-thumb {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(180deg, #1b2948 0%, #0d1526 100%);
+}
+.gallery-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.gallery-caption {
+  display: block;
+  padding: 0.8em 0.9em;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--ink);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .gallery-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 18px rgba(224, 179, 84, 0.22);
+  }
+  .gallery-item:hover .gallery-thumb img {
+    transform: scale(1.07);
+    filter: brightness(1.08);
+  }
+  .gallery-item:hover .gallery-caption {
+    background: var(--night-elevated);
+    color: var(--gold);
+  }
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-thumb img,
+  .gallery-caption,
+  .gallery-item { transition: none; }
+  .gallery-item:hover .gallery-thumb img { transform: none; }
+}
+
+#photoPopup {
+  background: #10182b;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75);
+}
+#photoPopup .popup-body {
+  padding: 2.6em 0.85em 1em;
+  text-align: center;
+}
+#photoPopup .popup-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #080d18;
+}
+#photoPopup .popup-caption {
+  margin: 0.85em 0 0;
+  font-size: 1.05em;
+  font-weight: 700;
+  color: var(--gold);
+}
